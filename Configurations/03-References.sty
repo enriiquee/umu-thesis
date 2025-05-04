@@ -1,0 +1,69 @@
+%%% Bibliography %%%
+\usepackage[
+    backend=biber, % Usar el backend biber.
+    sorting=none, % Ordenar la bibliografía según el orden de aparición.
+    style=numeric-comp, % Estilo de citas numérico comprimido.
+    sortcites=true,
+    natbib=true, % Compatibilidad con natbib.
+    maxnames=1 % Mostrar un autor principal seguido de "et al." si es necesario.
+]{biblatex}
+
+\setlength\bibitemsep{1.5\itemsep} % Increase spacing between bibliography items.
+\setlength\bibhang{0pt} % Remove hanging indent for bibliography entries.
+\addbibresource{Bibliography/Bibliography.bib} % Load the bibliography file.
+
+% Configure citation style to include both author and year prominently.
+\ExecuteBibliographyOptions{maxcitenames=1}
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}%
+  \bibhyperref{#1}%
+}
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}%
+  \bibhyperref{#1%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}%
+  }%
+}
+\AfterPackage{biblatex}{%
+  % Guardar las definiciones originales, ahora sí existen
+  \savebibmacro{cite}%
+  \savebibmacro{textcite}%
+
+  % Redefinir las macros enganchándolas al hipervínculo
+  \renewbibmacro*{cite}{%
+    \printtext[citehyperref]{%
+      \restorebibmacro{cite}%
+      \usebibmacro{cite}}%
+  }%
+
+  \renewbibmacro*{textcite}{%
+    \ifboolexpr{
+      ( not test {\iffieldundef{prenote}} and
+        test {\ifnumequal{\value{citecount}}{1}} )
+      or
+      ( not test {\iffieldundef{postnote}} and
+        test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+    }
+    {\DeclareFieldAlias{textcitehyperref}{noformat}}%
+    {}%
+    \printtext[textcitehyperref]{%
+      \restorebibmacro{textcite}%
+      \usebibmacro{textcite}}%
+  }%
+}
+
+
+
+% Hyperlink settings.
+\hypersetup{
+    bookmarksnumbered, % Enables the chapter and section numbers within the PDF bookmarks.
+	colorlinks=true, % Enable colored text for links.
+	urlcolor=maincolor, % Color for \url and \href links.
+	linkcolor=maincolor, % Color for internal links (e.g., \nameref).
+	citecolor=maincolor, % Color for citation links.
+}
+
+% Add a "." after the number in the PDF bookmark.
+\def\Hy@numberline#1{\ifHy@bookmarksnumbered{#1.\hspace{0.3em}}\else#1\fi}

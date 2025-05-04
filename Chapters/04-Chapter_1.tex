@@ -1,0 +1,210 @@
+\chapter[Guía completa del usuario: Instrucciones para el uso de la plantilla]{Guía completa del usuario Instrucciones para el uso de la plantilla}
+\label{cp:user-guide}
+
+{
+\parindent0pt
+
+Si tienes pensado utilizar esta plantilla, te recomiendo leer este capítulo con atención. Aquí encontrarás toda la información necesaria para utilizarla de forma eficaz, incluyendo las modificaciones obligatorias (\textit{por ejemplo}, título, subtítulo, información del autor/a), así como otras configuraciones que, aunque no son imprescindibles, pueden personalizarse según tus necesidades.
+
+La plantilla está compuesta por varios directorios y archivos, en total siete directorios distintos y decenas de archivos. Entre todos ellos, los más relevantes son \texttt{UMUthesis.tex} y \texttt{UMUthesis.cls}, que constituyen el núcleo del proyecto. En la \autoref{tab:file-structure} se muestra la estructura de los distintos directorios disponibles, junto con una breve descripción y un indicador que señala si es necesario modificar su contenido. Un símbolo de verificación indica que puedes realizar cambios en ese directorio, mientras que un guion significa que no deberías modificarlo.
+
+\begin{table}[!htpb]
+    \setlength{\extrarowheight}{2pt}
+    \caption[Estructura de directorios y organización de archivos]{Resumen de la estructura de directorios en esta plantilla.}
+    \label{tab:file-structure}
+    \begin{tabularx}{\textwidth}{lcX}
+        \toprule
+        \\[-1.5\normalbaselineskip]
+        \textbf{Directorio} & \textbf{Modificable} & \textbf{Descripción} \\ [0em]
+        \midrule
+        \textit{Bibliography} & $\checkmark$ & Contiene el archivo de bibliografía utilizado para gestionar las referencias a lo largo del documento. \\
+        \textit{Chapters} & $\checkmark$ & Aquí se organizan los capítulos individuales de la tesis, lo que facilita el trabajo por secciones. \\
+        \textit{Code} & $\checkmark$ & Almacena fragmentos de código y scripts relevantes que respaldan el contenido de la tesis. \\
+        \textit{Configurations} & - & Incluye todos los archivos de configuración necesarios para la plantilla, como estilos, diseño y opciones generales. \\
+        \textit{Figures} & $\checkmark$ & Contiene todas las figuras e imágenes referenciadas en el documento, organizadas para un acceso sencillo. \\
+        \textit{Matter} & - & Reúne los elementos preliminares del documento, como la portada, declaración de autoría y glosario. \\
+        \textit{Metadata} & $\checkmark$ & Carpeta donde se encuentra el archivo de metadatos, con información personalizable como autor/a, título y dirección de tesis. \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+
+Es crucial tener en cuenta que los archivos se organizan de acuerdo con una convención de nomenclatura específica, que debe ser \textbf{respetada} y \textbf{mantenida}. La convención de nomenclatura consiste en un valor numérico ascendente de dos dígitos, seguido de un guión y, a continuación, el nombre del archivo en mayúsculas. 
+
+Los dos archivos mencionados anteriormente, \texttt{UMUthesis.tex} y \texttt{UMUthesis.cls}, deben utilizarse con precaución. El archivo principal, como su nombre indica, es el archivo maestro en el que añadirá los capítulos necesarios para incluirlos en su trabajo. El archivo de clase, por su parte, requiere aún más cautela, y no se recomienda alterarlo.
+
+\section{Opciones de la Plantilla y la Clase}
+\label{sec:class-options}
+
+Lo primero que debes hacer es especificar las opciones dentro del archivo \texttt{UMUthesis.tex}. ¿Cómo se hace? Es muy sencillo. En la primera línea del archivo encontrarás el comando \texttt{documentclass}, que carga la clase personalizada de esta plantilla. En esa llamada puedes incluir las opciones que necesites. Las opciones disponibles, en formato clave-valor, se enumeran en la \autoref{tab:template-options}.
+
+{
+\setlength{\extrarowheight}{-1.75pt}
+\begin{xltabular}{\textwidth}{lX}
+\caption{Opciones de clase soportadas por la plantilla.}
+\label{tab:template-options} \\
+%
+\toprule 
+\textbf{Opción} & \textbf{Descripción} \\ 
+\midrule
+\endfirsthead
+%
+\multicolumn{2}{c}%
+{{\textit{\bfseries Tabla \thetable\ continuación de la página anterior.}}} \\
+\toprule 
+\textbf{Opción} & \textbf{Descripción} \\ 
+\midrule
+\endhead
+%
+\bottomrule
+\addlinespace[1mm]
+\multicolumn{2}{r}%
+{{\textit{Continúa en la siguiente página.}}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\textbf{school=OPT} & Selección del centro y su logotipo correspondiente. \\ 
+\multirow[t]{2}{*}{\footnotesize{\textit{estg, esecs, esslei, esad, estm}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: school=estg}} \\
+& \footnotesize{\textit{Esta opción solo modifica el nombre del centro y el logotipo que aparece en la portada.}} \\[1.70em]
+
+\textbf{language=OPT} & Selección del idioma del documento. \\ 
+\footnotesize{\textit{spanish, english}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: language=english}} \\[0.85em]
+
+\textbf{chapterstyle=OPT} & Estilo visual de los capítulos. \\
+\multirow[t]{2}{*}{\footnotesize{\textit{classic, modern, fancy}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: chapterstyle=classic}} \\
+& \footnotesize{\textit{Esta opción afecta a la apariencia del título del capítulo y su numeración.}} \\[1.70em]
+
+\textbf{coverstyle=OPT} & Estilo de la portada. \\
+\multirow[t]{3}{*}{\footnotesize{\textit{classic, bw}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: coverstyle=classic}} \\
+& \footnotesize{\textit{classic $\rightarrow$ Portada en rojo.}} \\
+& \footnotesize{\textit{bw $\rightarrow$ Portada en blanco y negro.}} \\
+
+\textbf{docstage=OPT} & Etapa del documento. \\
+\multirow[t]{3}{*}{\footnotesize{\textit{final, working}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: docstage=final}} \\
+& \footnotesize{\textit{final $\rightarrow$ Versión final del documento.}} \\
+& \footnotesize{\textit{working $\rightarrow$ Documento en desarrollo.}} \\[.3em]
+
+\textbf{media=OPT} & Tipo de soporte para el documento. \\
+\multirow[t]{3}{*}{\footnotesize{\textit{paper, screen}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: media=paper}} \\
+& \footnotesize{\textit{paper $\rightarrow$ Inserta páginas en blanco entre secciones.}} \\
+& \footnotesize{\textit{screen $\rightarrow$ No inserta páginas en blanco.}} \\[.3em]
+
+\textbf{colorlink=OPT} & Color principal del documento. \\
+\multirow[t]{2}{*}{\footnotesize{\textit{color}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: colorlink=black}} \\
+& \footnotesize{\textit{Se requiere un color válido. Consulta el manual de xcolor (sección 4.2).}} \\
+\end{xltabular}
+}
+
+\begin{block}[tip]
+\textit{Aunque el color por defecto es \texttt{black}, se recomienda utilizar \texttt{red!45!black} para mejor visibilidad. Lo mismo aplica al estilo de portada, donde se sugiere utilizar \texttt{classic}.}
+\end{block}
+
+Después de definir las opciones de clase, puedes continuar con la personalización de los metadatos del documento. Consulta la \autoref{sec:metadata} para más detalles.
+
+\section{Personalización de Metadatos}
+\label{sec:metadata}
+
+Mientras que algunas opciones, como el idioma o el centro, se configuran en la clase principal, otros datos —como el autor, título o año académico— deben definirse manualmente. Para facilitar esta tarea, la plantilla incluye un archivo específico para metadatos: \texttt{Metadata/Metadata.tex}. En él encontrarás todas las variables editables, junto con comentarios que indican si son obligatorias.
+
+Para omitir una variable, basta con comentarla. En la \autoref{tab:metadata} se resumen las variables disponibles, sus comandos asociados y si son obligatorias.
+
+\begin{longtable}[c]{llc}
+\caption{Variables de metadatos en la plantilla.}
+\label{tab:metadata} \\
+\toprule
+\textbf{Variable} & \textbf{Comando macro} & \textbf{Obligatoria} \\ \midrule
+\endfirsthead
+%
+\multicolumn{3}{c}%
+{{\textit{\bfseries Tabla \thetable\ continuación de la página anterior.}}} \\
+\toprule
+\textbf{Variable} & \textbf{Comando macro} & \textbf{Obligatoria} \\ \midrule
+\endhead
+%
+\bottomrule
+%
+\addlinespace[1mm]
+\multicolumn{3}{r}%
+{{\textit{Continúa en la siguiente página.}}} \\
+\endfoot
+%
+\bottomrule
+%
+\endlastfoot
+%
+Título                    & \verb|\GetTitle|               & $\checkmark$ \\
+Subtítulo                 & \verb|\GetSubtitle|            & $\checkmark$ \\
+Universidad               & \verb|\GetUniversity|          & $\checkmark$ \\
+Centro                    & \verb|\GetSchool|              & $\checkmark$ \\
+Departamento              & \verb|\GetDepartment|          & $\checkmark$ \\
+Grado o doctorado         & \verb|\GetDegree|              & $\checkmark$ \\
+Programa o curso          & \verb|\GetCourse|              & -            \\
+Lugar y fecha             & \verb|\GetDate|                & $\checkmark$ \\ 
+Año académico             & \verb|\GetAcademicYear|        & $\checkmark$ \\ 
+
+Tipo de tesis (\textit{Tesis, Proyecto, Prácticas}) & \verb|\GetThesisType| & $\checkmark$ \\
+
+Nombre del autor/a principal      & \verb|\GetFirstAuthor|       & $\checkmark$ \\
+Número de identificación autor/a & \verb|\GetFirstAuthorNumber| & $\checkmark$ \\ 
+
+Segundo autor/a           & \verb|\GetSecondAuthor|        & - \\
+ID segundo autor/a        & \verb|\GetSecondAuthorNumber|  & - \\ 
+
+Tercer autor/a            & \verb|\GetThirdAuthor|         & - \\
+ID tercer autor/a         & \verb|\GetThirdAuthorNumber|   & - \\ 
+
+Nombre del director/a     & \verb|\GetSupervisor|          & $\checkmark$ \\
+Correo del director/a     & \verb|\GetSupervisorMail|      & $\checkmark$ \\
+Título y afiliación       & \verb|\GetSupervisorTitle|     & $\checkmark$ \\ 
+
+Co-director/a             & \verb|\GetCoSupervisor|        & - \\
+Correo co-director/a      & \verb|\GetCoSupervisorMail|    & - \\
+Título y afiliación co-dir& \verb|\GetCoSupervisorTitle|   & - \\ 
+
+Segundo co-director/a     & \verb|\GetSecCoSupervisor|     & - \\
+Correo segundo co-dir     & \verb|\GetSecCoSupervisorMail| & - \\
+Título y afiliación       & \verb|\GetSecCoSupervisorTitle|& - \\
+\end{longtable}
+
+\textbf{¿Quieres añadir más opciones?} Puedes abrir un \textit{issue} en el repositorio oficial de GitHub o escribirme al correo indicado en esta documentación.
+
+\section{Comandos Personalizados}
+
+Esta plantilla incluye algunos comandos personalizados para facilitar tu trabajo. Por ejemplo, si deseas insertar una nota de tareas pendientes, puedes usar el bloque \verb|\begin{block}[todo]|, que mostrará un bloque al estilo Markdown. Otros bloques disponibles son: \verb|tip|, \verb|warning| y \verb|note|. A continuación se muestra un ejemplo visual:
+
+\vspace{.875em}
+\begin{tcbraster}[
+    raster columns=2, 
+    raster equal height, 
+    nobeforeafter, 
+    raster column skip=2cm
+]
+\begin{block}[todo]
+    \textit{Este es un bloque de tareas pendientes.}
+\end{block}
+\begin{block}[tip]
+    \textit{Este es un bloque de sugerencias.}
+\end{block}
+\end{tcbraster}
+
+\begin{tcbraster}[
+    raster columns=2, 
+    raster equal height, 
+    nobeforeafter, 
+    raster column skip=2cm
+]
+\begin{block}[warning]
+    \textit{Este es un bloque de advertencia.}
+\end{block}
+\begin{block}[note]
+    \textit{Este es un bloque de nota.}
+\end{block}
+\end{tcbraster}
+\vspace{.875em}
+
+También puedes utilizar el comando \verb|\myuline{TEXTO}| para subrayar de forma más estética. A diferencia del subrayado estándar de \LaTeX, este comando mejora la presentación visual sin alterar el interlineado. Así puedes tener un subrayado \myuline{más limpio} y \myuline{elegante}.
+
+\section{Inserción de Capítulos Personalizados}
+
+Como se indicó anteriormente, para utilizar esta plantilla correctamente debes realizar tres pasos: \(i\) configurar las opciones en la clase del documento (ver \autoref{sec:class-options}), \(ii\) personalizar los metadatos (ver \autoref{sec:metadata}), y \(iii\) crear e importar tus propios capítulos. Para ello, crea un archivo \texttt{.tex} dentro del directorio \texttt{Chapters}, siguiendo la convención de nombres, e inclúyelo en el archivo principal con el comando \verb|\include{CAPITULO}|. ¡Y listo! Tu primer capítulo estará listo para compilar.
