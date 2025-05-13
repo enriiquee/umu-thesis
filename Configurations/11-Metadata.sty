@@ -14,11 +14,12 @@
 \NewDocumentCommand{\SecCoSupervisor}{m}{\newcommand{\GetSecCoSupervisor}{#1}}
 \NewDocumentCommand{\SecCoSupervisorMail}{m}{\newcommand{\GetSecCoSupervisorMail}{#1}}
 \NewDocumentCommand{\SecCoSupervisorTitle}{m}{\newcommand{\GetSecCoSupervisorTitle}{#1}}
-\NewDocumentCommand{\Subtitle}{m}{\newcommand{\GetSubtitle}{#1}}
+
 %%% Títulos bilingües %%%
 \NewDocumentCommand{\TitleEsp}{m}{\newcommand{\titleesp}{#1}}
 \NewDocumentCommand{\OtherTitle}{m}{\newcommand{\thetitle}{#1}}
 
+\NewDocumentCommand{\Subtitle}{m}{\newcommand{\GetSubtitle}{#1}}
 \NewDocumentCommand{\University}{m}{\newcommand{\GetUniversity}{#1}}
 \NewDocumentCommand{\School}{m}{\newcommand{\GetSchool}{#1}}
 \NewDocumentCommand{\Department}{m}{\newcommand{\GetDepartment}{#1}}
@@ -37,7 +38,7 @@
 \NewDocumentCommand{\DocumentVersion}{m}{%
     \newcommand{\GetDocumentVersion}{\color{black}{%
         \ifthenelse{\equal{\LanguageOption}{spanish}}{%
-            \textit{Versión Preliminar #1}%
+            \textit{Versão Preliminar #1}%
         }{%
             \textit{Draft Version #1}%
         }%

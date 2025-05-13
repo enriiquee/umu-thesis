@@ -5,13 +5,12 @@
 
 %%% Document Options %%%
 \documentclass[
-    language=spanish,
+    language=english,
+    docstage=final,
     media=paper,
-    linkcolor=red!45!black,
+    linkcolor=black!45!black,
     chapterstyle=fancy,
-    coverstyle=classic,
-    docstage=final         
-]{UMUthesis}
+]{UMUthesis} % Refer to the Wiki for a list of available options.
 
 %%% Document Version %%%
 \DocumentVersion{1.0.0} % This is required only if the 'docstage' is set to 'working'.
@@ -36,16 +35,14 @@
 %%% Roman Numeration %%%
 \pagenumbering{roman}
 
-%%% Dedicatoria %%%
-\include{Matter/03-Dedicatoria}
+%%% Dedication %%%
+\include{Matter/03-Dedication}
 
-%%% Frase cultureta %%%
+%%% Frase celebre %%%
+\include{Matter/04-Famous-phrase}
 
-\include{Matter/04-Frase_cultureta}
-
-%%% Agradecimientos %%%
-
-\include{Matter/03-Acknowledgements}
+%%% Acknowledgements %%%
+\include{Matter/04-Acknowledgements}
 
 %%% Abstract %%%
 \include{Chapters/00-Abstract}
@@ -57,26 +54,20 @@
 
 %%% Print: Glossary and Acronyms %%%
 %\glossarytoc\printnormalglossary
-\printglossary[type=\acronymtype,title=Abreviations,nonumberlist]
-
-%%% Estructura tesis %%%
-\include{Matter/06-Estructura_tesis}
+\acronymtoc\printacronymglossary
 
 %%% Arabic Numeration %%%
 \pagenumbering{arabic}
 
 %%% Chapters (**Insert Yours Here**) %%%
-
 \include{Chapters/01-Introduction}
 \include{Chapters/02-Hypothe&Objectives}
 \include{Chapters/03-Mat&Meth}
 
-
-%%% Capítulos de tu tesis %%%
+%%% Chapters of your thesis %%%%
 
 \include{Chapters/04-Chapter_1}
 \include{Chapters/05-Chapter_2}
-\include{Chapters/06-Chapter_3}
 
 %%% Discusión %%%
 
@@ -94,7 +85,7 @@
 \appendix
 \input{Matter/06-Appendices}
 \input{Chapters/Appendices/00-AppendixA}
-\input{Chapters/Appendices/01-AppendixB}
+%\input{Chapters/Appendices/01-AppendixB}
 
 %%% Annexes: Work that *YOU DID NOT* Develop %%%
 \input{Matter/07-Annexes}

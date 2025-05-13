@@ -8,7 +8,7 @@
     \vspace*{\fill}
     \begin{center}
         \ifthenelse{\equal{\LanguageOption}{spanish}}{%
-            \textcolor{gray!50}{\textit{Página intencionalmente dejada enblanco.}}
+            \textcolor{gray!50}{\textit{Página intencionalmente dejada en blanco.}}
         }{%
             \textcolor{gray!50}{\textit{This page intentionally left blank.}}
         }
@@ -27,7 +27,7 @@
     \noindent #1%
 }
 \newcommand{\guiainfo}[1]{%
-    \textcolor{note}{\faInfoCircle\ \textbf{Guía de escritura}}%
+    \textcolor{note}{\faInfoCircle\ \textbf{Ayuda}}%
     \\[.55em]%
     \noindent #1%
 }
@@ -41,7 +41,7 @@
 
 % Abstract keywords.
 \NewDocumentCommand{\keywordsen}{m}{\vspace{.4cm}\noindent\textbf{Keywords:} #1}
-\NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palabras-clave:} #1}
+\NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palavras-Chave:} #1}
 
 % Landscape mode - the proper way!
 \def\ifGm@preamble#1{\@firstofone}
@@ -75,7 +75,7 @@
     code={\ifdefempty{\tcbtitletext}{}{\tcbset{before upper={\tcbtitle\par\medskip}}}}
 }
 
-% Capitalise the first letter in '\autoref' for both English and Spanish.
+% Capitalise the first letter in '\autoref' for both English and spanish.
 \addto\extrasenglish{\def\figureautorefname{Figure}}
 \addto\extrasenglish{\def\chapterautorefname{Chapter}}
 \addto\extrasenglish{\def\sectionautorefname{Section}}
@@ -84,11 +84,9 @@
 \addto\extrasenglish{\def\tableautorefname{Table}}
 \addto\extrasenglish{\def\partautorefname{Part}}
 \addto\extrasenglish{\def\appendixautorefname{Appendix}}
-\addto\extrasspanish{\def\sectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsectionautorefname{Sección}}
-\addto\extrasspanish{\def\subsubsectionautorefname{Sección}}
-\addto\extrasspanish{\def\tableautorefname{Tabla}}
-
+\addto\extrasspanish{\def\sectionautorefname{Secção}}
+\addto\extrasspanish{\def\subsectionautorefname{Secção}}
+\addto\extrasspanish{\def\subsubsectionautorefname{Secção}}
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%
@@ -103,14 +101,13 @@
 
 % Logic to add or omit a blank page depending on the '\MediaOption' value.
 \newcommand{\MediaOptionLogic}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\clearpage\thispagestyle{empty}}{\thispagestyle{plain}}%
+    \ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\thispagestyle{plain}}%
 }
 
 
 \newcommand{\MediaOptionLogicAcr}{%
-    \ifthenelse{\equal{\MediaOption}{paper}}{\cleardoublepage}{}%
+    \ifthenelse{\equal{\MediaOption}{paper}}{\plainblankpage}{\clearpage\thispagestyle{plain}}%
 }
-
 
 \newcommand{\MediaOptionLogicBlank}{%
     \ifthenelse{\equal{\MediaOption}{paper}}{\blankpage}{}%
@@ -121,24 +118,9 @@
 }
 
 % Update various elements based on the '\MediaOption' value.
-\apptocmd{\tableofcontents}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\listoffigures}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\listoftables}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\printnormalglossary}{\MediaOptionLogic}{}{\fail}
-\apptocmd{\printacronymglossary}{\MediaOptionLogicAcr}{}{\fail}
-\pretocmd{\printbibliography}{\MediaOptionLogic}{}{\fail}
 
 
-% Cambiar el nombre del glosario de acrónimos según el idioma
-\addto\extrasspanish{%
-  \renewcommand{\acronymname}{Abreviaturas}%
-  \renewcommand{\gls}{Abreviatura}%
-}
-\addto\extrasenglish{%
-  \renewcommand{\acronymname}{Abbreviations}%
-  \renewcommand{\gls}{Abbreviations}%
-}
+% Set margins and indent
 
-\setlength{\parskip}{1mm}
-\setlength{\parindent}{1cm}
-
+\setlength{\parskip}{3mm}% separación entre párrafo
+\setlength{\parindent}{1cm}%identación primera linea de párrafo

@@ -1,7 +1,6 @@
 % ----------------------------------------
-% Definición del fondo según CoverOption
+% Definición del fondo 
 % ----------------------------------------
-\ifthenelse{\equal{\CoverOption}{classic}}{%
   \newcommand\BackgroundPicCoverWhite{%
     \put(0,0){%
       \parbox[b][\paperheight]{\paperwidth}{%
@@ -12,18 +11,8 @@
       }%
     }%
   }%
-}{%
-  \newcommand\BackgroundPicCoverWhite{%
-    \put(0,0){%
-      \parbox[b][\paperheight]{\paperwidth}{%
-        \vfill
-        \centering
-        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Figures/Theme/BG_UMU_White.pdf}%
-        \vfill
-      }%
-    }%
-  }%
-}
+
+
 \AddToShipoutPictureBG*{\BackgroundPicCoverWhite}
 
 % ----------------------------------------
@@ -40,13 +29,12 @@
     \renewcommand*\familydefault{\sfdefault} % IBM Plex Sans
 
     % Color de texto según opción de portada
-    \ifthenelse{\equal{\CoverOption}{classic}}
-      {\color{black}}{\color{frontpagedark}}
+    \color{black}
 
 \vspace*{\fill}  % empuje vertical
 
     % Selección de portada en inglés vs español
-    \ifthenelse{\equal{\LanguageOption}{english}}{%
+\ifthenelse{\equal{\LanguageOption}{english}}{%
       % ======= PORTADA EN INGLÉS =======
       {\noindent\bfseries\fontsize{12}{14}\selectfont DOCTORAL THESIS\par}
       \vspace{0.5cm}
@@ -92,16 +80,16 @@
                                               \> \GetSecCoSupervisor
         \end{tabbing}
       \end{minipage}%
-      \begin{minipage}[t]{0.5\textwidth}
+      \begin{minipage}[t]{0.45\textwidth}
         \vspace{2cm}
         \raggedleft
         {\fontsize{13}{16}\selectfont \the\year \par}
       \end{minipage}
     }
-    % Fin condicional LanguageOption
+   % Fin condicional LanguageOption
 
     \vspace{1cm}
   \endgroup
 \end{titlepage}
-\cleardoublepage
 \restoregeometry
+\MediaOptionLogicBlank

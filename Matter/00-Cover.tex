@@ -1,7 +1,6 @@
 % ----------------------------------------
-% Definición del fondo según CoverOption
+% Definición del fondo 
 % ----------------------------------------
-\ifthenelse{\equal{\CoverOption}{classic}}{%
   \newcommand\BackgroundPicCover{%
     \put(0,0){%
       \parbox[b][\paperheight]{\paperwidth}{%
@@ -11,19 +10,8 @@
         \vfill
       }%
     }%
-  }%
-}{%
-  \newcommand\BackgroundPicCover{%
-    \put(0,0){%
-      \parbox[b][\paperheight]{\paperwidth}{%
-        \vfill
-        \centering
-        \includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{Figures/Theme/Front-Page-BG.pdf}%
-        \vfill
-      }%
-    }%
-  }%
-}
+  } %
+
 \AddToShipoutPictureBG*{\BackgroundPicCover}
 
 % ----------------------------------------
@@ -40,10 +28,9 @@
     \renewcommand*\familydefault{\sfdefault} % IBM Plex Sans
 
     % Color de texto según opción de portada
-    \ifthenelse{\equal{\CoverOption}{classic}}
-      {\color{white}}{\color{frontpagedark}}
-
-\vspace*{\fill}  % empuje vertical
+    \color{white}
+    
+    \vspace*{\fill}  % empuje vertical
 
     % Selección de portada en inglés vs español
     \ifthenelse{\equal{\LanguageOption}{english}}{%
@@ -103,5 +90,5 @@
     \vspace{1cm}
   \endgroup
 \end{titlepage}
-\cleardoublepage
 \restoregeometry
+\MediaOptionLogicBlank

@@ -8,10 +8,10 @@
 }{}
 
 \ifthenelse{\equal{\ChapterOption}{fancy}}{%
-  \titleformat{\chapter}[display]
+    \titleformat{\chapter}[display]
     {\flushright\normalsize\Huge\color{black}}% 
     {\flushright\normalsize%
-      {\fontsize{30}{30}\selectfont\hspace*{-1em}\rule[-2pt]{.1pt}{30pt}\hspace{0.5em}\raisebox{4.5pt}{\thechapter}}}%
+    {\fontsize{30}{30}\selectfont\hspace*{-1em}\rule[-2pt]{.1pt}{30pt}\hspace{0.5em}\raisebox{4.5pt}{\thechapter}}}%
     {12pt}% <- incrementar el espacio vertical si lo deseas
     {\addfontfeature{LetterSpace=6}\Huge\scshape}% <- y aquí también
 }{}

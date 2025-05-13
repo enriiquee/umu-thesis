@@ -1,11 +1,12 @@
 % Author Name: Enrique Pérez
 % Author Contact: enrique.perez2@um.es
 % Version: 1.0.0 - 2025/04/29
-% Public Repository: 
+% Public Repository: https://github.com/enriiquee/umu-thesis
+
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{UMUthesis}[2025/05/02 UMU Thesis Class]
+\ProvidesClass{UMUthesis}[2025/05/05 UMU Thesis Class]
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
 
@@ -18,23 +19,6 @@
 }
 
 \keys_define:nn { UMUthesis } {
-    school .choices:nn =
-        { estg, esecs, esslei, esad, estm }
-        { \tl_gset:Nn \g_UMUthesis_myschool_tl { #1 } },
-    school / unknown .code:n = 
-        { \ClassWarningNoLine{UMUthesis}
-        {Specified~'school'~not~available.~Defaulting~to~'estg'} },
-    school .default:n = { estg },
-    school .initial:n = { estg },
-
-    coverstyle .choices:nn =
-        { classic, bw }
-        { \tl_gset:Nn \g_UMUthesis_mycover_tl { #1 } },
-    coverstyle / unknown .code:n = 
-        { \ClassWarningNoLine{UMUthesis}{Specified~'coverstyle'~not~available.~Defaulting~to~'classic'} },
-    coverstyle .default:n = { classic },
-    coverstyle .initial:n = { classic },
-
     language .choices:nn = 
         { english, spanish } 
         { \tl_gset:Nn \g_UMUthesis_mylanguage_tl { #1 } },
@@ -48,8 +32,8 @@
         { \tl_gset:Nn \g_UMUthesis_style_tl { #1 } },
     chapterstyle / unknown .code:n = 
         { \ClassWarningNoLine{UMUthesis}{Specified~'chapterstyle'~not~available.~Defaulting~to~'classic'} },
-    chapterstyle .default:n = { classic },
-    chapterstyle .initial:n = { classic },
+    chapterstyle .default:n = { fancy },
+    chapterstyle .initial:n = { fancy },
 
     docstage .choices:nn = 
         { working, final } 
@@ -85,46 +69,29 @@
         { \ClassWarningNoLine{UMUthesis}{Specified~'doctype'~not~available.~Defaulting~to~'thesis'} },
     doctype .default:n = { thesis },
     doctype .initial:n = { thesis },
+    
+    unknown .code:n = 
+        { \ClassWarningNoLine{UMUthesis}{An~unknown~option~was~ignored.~Please~check~the~documentation~to~see~the~available~options} }
 }
 
 \newcommand{\LanguageOption}{\g_UMUthesis_mylanguage_tl}
-\newcommand{\SchoolOption}{\g_UMUthesis_myschool_tl}
-\newcommand{\CoverOption}{\g_UMUthesis_mycover_tl}
 \newcommand{\ChapterOption}{\g_UMUthesis_style_tl}
 \newcommand{\DocStageOption}{\g_UMUthesis_docstage_tl}
 \newcommand{\MediaOption}{\g_UMUthesis_media_tl}
 \newcommand{\ColorOption}{\g_UMUthesis_linkcolor_tl}
-\newcommand{\DocTypeOption}{\g_UMUthesis_doctype_tl}
+\newcommand{\DocTypeOption}{g_UMUthesis_doctype_tl}
 
-\ExplSyntaxOff
-
-%%% Procesar opciones reconocidas (con l3keys)
 \ProcessKeyOptions[UMUthesis]
-
-%%% Reenviar todas las opciones no reconocidas a 'report'
-\DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{report}%
-}
-\ProcessOptions\relax
-
-
-% Reenviar opciones desconocidas a la clase base 'report'
-\DeclareOption*{%
-  \PassOptionsToClass{\CurrentOption}{report}%
-}
-\ProcessOptions\relax
-
 \ExplSyntaxOff
 
 %%% Load Master Class %%%
-\LoadClass[a4paper,twoside,11pt]{report}
+\LoadClass[a4paper,11pt,twoside,openright]{report}
 
 %%% Load Babel Package (Language) %%%
 \expandafter\RequirePackage\expandafter[\LanguageOption]{babel}
 
 %%% Required Packages %%%
 \RequirePackage{ifthen} % Provides conditional statements.
-\RequirePackage{lipsum}
 \RequirePackage{etoolbox} % Advanced programming tools for LaTeX.
 \RequirePackage{graphicx} % For including and manipulating images.
 \RequirePackage{subcaption} % Subfigures and side-by-side captions.
@@ -160,8 +127,9 @@
 \RequirePackage{tikz} % Create high-quality graphics programmatically.
 \RequirePackage{psvectorian} % To include in-text ornamatentions. 
 \RequirePackage{blindtext} % Generate placeholder text.
-\RequirePackage{pdfpages} % To include pdfs files
-\RequirePackage{emptypage}
+\RequirePackage{pdfpages} % allows to insert pdf files
+\RequirePackage{lipsum} % Include loreipsun text
+\RequirePackage{emptypage} % Include empty page for openright
 
 
 

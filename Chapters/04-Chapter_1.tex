@@ -64,21 +64,12 @@ Lo primero que debes hacer es especificar las opciones dentro del archivo \textt
 \bottomrule
 \endlastfoot
 
-\textbf{school=OPT} & Selección del centro y su logotipo correspondiente. \\ 
-\multirow[t]{2}{*}{\footnotesize{\textit{estg, esecs, esslei, esad, estm}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: school=estg}} \\
-& \footnotesize{\textit{Esta opción solo modifica el nombre del centro y el logotipo que aparece en la portada.}} \\[1.70em]
-
 \textbf{language=OPT} & Selección del idioma del documento. \\ 
 \footnotesize{\textit{spanish, english}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: language=english}} \\[0.85em]
 
 \textbf{chapterstyle=OPT} & Estilo visual de los capítulos. \\
-\multirow[t]{2}{*}{\footnotesize{\textit{classic, modern, fancy}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: chapterstyle=classic}} \\
-& \footnotesize{\textit{Esta opción afecta a la apariencia del título del capítulo y su numeración.}} \\[1.70em]
-
-\textbf{coverstyle=OPT} & Estilo de la portada. \\
-\multirow[t]{3}{*}{\footnotesize{\textit{classic, bw}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: coverstyle=classic}} \\
-& \footnotesize{\textit{classic $\rightarrow$ Portada en rojo.}} \\
-& \footnotesize{\textit{bw $\rightarrow$ Portada en blanco y negro.}} \\
+\multirow[t]{2}{*}{\footnotesize{\textit{classic, modern, fancy}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: chapterstyle=fancy}} \\
+& \footnotesize{\textit{Esta opción afecta a la apariencia del título del capítulo y su numeración. A mi la que más me gusta es la fancy, pero tu elige la que te de la gana.}} \\[1.70em]
 
 \textbf{docstage=OPT} & Etapa del documento. \\
 \multirow[t]{3}{*}{\footnotesize{\textit{final, working}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: docstage=final}} \\
@@ -90,14 +81,17 @@ Lo primero que debes hacer es especificar las opciones dentro del archivo \textt
 & \footnotesize{\textit{paper $\rightarrow$ Inserta páginas en blanco entre secciones.}} \\
 & \footnotesize{\textit{screen $\rightarrow$ No inserta páginas en blanco.}} \\[.3em]
 
-\textbf{colorlink=OPT} & Color principal del documento. \\
+\textbf{linkcolor=OPT} & Color principal del documento. \\
 \multirow[t]{2}{*}{\footnotesize{\textit{color}}} & \footnotesize{\textit{$\Rightarrow$ Por defecto: colorlink=black}} \\
 & \footnotesize{\textit{Se requiere un color válido. Consulta el manual de xcolor (sección 4.2).}} \\
 \end{xltabular}
 }
 
 \begin{block}[tip]
-\textit{Aunque el color por defecto es \texttt{black}, se recomienda utilizar \texttt{red!45!black} para mejor visibilidad. Lo mismo aplica al estilo de portada, donde se sugiere utilizar \texttt{classic}.}
+\textit{Aunque el color por defecto es \texttt{black}, se recomienda utilizar \texttt{red!45!black} para mejor visibilidad del PDF}
+\end{block}
+\begin{block}[warning]
+\textit{Si vas a imprimir la tesis, configura el color en black para que los de la fotocopiadora no te cobren la página a color simplemente por un link.}
 \end{block}
 
 Después de definir las opciones de clase, puedes continuar con la personalización de los metadatos del documento. Consulta la \autoref{sec:metadata} para más detalles.
@@ -133,39 +127,22 @@ Para omitir una variable, basta con comentarla. En la \autoref{tab:metadata} se 
 %
 \endlastfoot
 %
-Título                    & \verb|\GetTitle|               & $\checkmark$ \\
-Subtítulo                 & \verb|\GetSubtitle|            & $\checkmark$ \\
-Universidad               & \verb|\GetUniversity|          & $\checkmark$ \\
-Centro                    & \verb|\GetSchool|              & $\checkmark$ \\
-Departamento              & \verb|\GetDepartment|          & $\checkmark$ \\
-Grado o doctorado         & \verb|\GetDegree|              & $\checkmark$ \\
-Programa o curso          & \verb|\GetCourse|              & -            \\
+Title                    & \verb|\GetTitle|               & $\checkmark$ \\
+Título Español                   & \verb|\GetTitleEsp|               & $\checkmark$ \\
 Lugar y fecha             & \verb|\GetDate|                & $\checkmark$ \\ 
 Año académico             & \verb|\GetAcademicYear|        & $\checkmark$ \\ 
-
-Tipo de tesis (\textit{Tesis, Proyecto, Prácticas}) & \verb|\GetThesisType| & $\checkmark$ \\
-
 Nombre del autor/a principal      & \verb|\GetFirstAuthor|       & $\checkmark$ \\
-Número de identificación autor/a & \verb|\GetFirstAuthorNumber| & $\checkmark$ \\ 
-
-Segundo autor/a           & \verb|\GetSecondAuthor|        & - \\
-ID segundo autor/a        & \verb|\GetSecondAuthorNumber|  & - \\ 
-
-Tercer autor/a            & \verb|\GetThirdAuthor|         & - \\
-ID tercer autor/a         & \verb|\GetThirdAuthorNumber|   & - \\ 
-
 Nombre del director/a     & \verb|\GetSupervisor|          & $\checkmark$ \\
 Correo del director/a     & \verb|\GetSupervisorMail|      & $\checkmark$ \\
-Título y afiliación       & \verb|\GetSupervisorTitle|     & $\checkmark$ \\ 
 
 Co-director/a             & \verb|\GetCoSupervisor|        & - \\
 Correo co-director/a      & \verb|\GetCoSupervisorMail|    & - \\
-Título y afiliación co-dir& \verb|\GetCoSupervisorTitle|   & - \\ 
 
 Segundo co-director/a     & \verb|\GetSecCoSupervisor|     & - \\
 Correo segundo co-dir     & \verb|\GetSecCoSupervisorMail| & - \\
-Título y afiliación       & \verb|\GetSecCoSupervisorTitle|& - \\
 \end{longtable}
+
+
 
 \textbf{¿Quieres añadir más opciones?} Puedes abrir un \textit{issue} en el repositorio oficial de GitHub o escribirme al correo indicado en esta documentación.
 

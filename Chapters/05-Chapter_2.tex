@@ -4,7 +4,7 @@
 {
 \parindent0pt
 
-En este capítulo se introduce el entorno de trabajo de \LaTeX, destacando los aspectos básicos que necesitarás para redactar tu tesis. En primer lugar, \LaTeX (pronunciado “LAY-tek” o “LAH-tek”) es una herramienta para crear documentos de calidad profesional. A diferencia de los editores de tipo \textit{Lo que ves es lo que obtienes} como Microsoft Word, \LaTeX utiliza archivos de texto plano que contienen tanto el contenido como los comandos de formato. Estos archivos son procesados por un motor TeX, que interpreta dichos comandos para producir un PDF maquetado con precisión tipográfica.
+En este capítulo se introduce el entorno de trabajo de \LaTeX, destacando los aspectos básicos que necesitarás para redactar tu tesis. A diferencia de los editores de tipo \textit{Lo que ves es lo que obtienes} como Microsoft Word, \LaTeX utiliza archivos de texto plano que contienen tanto el contenido como los comandos de formato. Estos archivos son procesados por un motor TeX, que interpreta dichos comandos para producir un PDF maquetado con precisión tipográfica.
 
 Este enfoque te permite centrarte en el contenido, dejando la responsabilidad del diseño y la presentación a \LaTeX y al motor TeX, garantizando así un resultado profesional en todo momento. Aunque en este capítulo se presentarán algunas funcionalidades clave, se recomienda encarecidamente aprender \LaTeX desde sus fundamentos. Puedes consultar en cualquier momento la serie de Overleaf \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Learn LaTeX} como guía de referencia.
 }
@@ -12,15 +12,14 @@ Este enfoque te permite centrarte en el contenido, dejando la responsabilidad de
 \section{Citas}
 \label{sec:citations}
 
-Existen dos formas principales de citar entradas de la bibliografía. El primer método consiste en realizar una cita dentro del texto, utilizando el comando \verb|\citet{ENTRADA}|. El segundo método se utiliza para insertar la cita dentro de un párrafo, mediante el comando \verb|\citep{ENTRADA}|. A continuación, se muestra un ejemplo que demuestra ambos usos.
-
-Es importante señalar que también puedes citar varias obras en una misma cita utilizando el formato: \verb|\citep{ENTRADA1, ENTRADA2, ...}|. Además, es posible citar únicamente el título de una obra o el nombre del autor. Para ello, utiliza \verb|\citetitle{ENTRADA}| para citar el título y \verb|\citeauthor{ENTRADA}| para citar el autor.
+Existen dos formas principales de citar entradas de la bibliografía. El primer método consiste en instalar un gestor de bibliografías. Existen multiples en el mercado (Mendeley, Zotero, Endnote etc.). Actualmente, la UMU tiene una colaboración con Mendeley (\href{https://www.um.es/web/biblioteca/novedades/-/asset_publisher/XFPBg3QULTgS/content/acceso-a-mendeley-institutional-edition}{(Link)}. Es fácil de usar y se puede sincronizar con Overleaf. 
+Una vez hecho esto, para realizar una cita dentro del texto, se utiliza el comando \verb|\cite{ENTRADA}|, y en el mismo comando puedes citar a multiples autores a la vez \verb|\cite{ENTRADA1, ENTRADA2, ENTRADA3}|. 
 
 \begin{block}[tip]
 \textit{Citar correctamente es fundamental en la escritura académica, ya que constituye la base de la credibilidad, la transparencia y el avance del conocimiento. Es una práctica esencial de cualquier trabajo académico riguroso. Asegúrate siempre de que tus citas sean precisas y adecuadas.}
 \end{block}
 
-\noindent\textbf{Ejemplo:} Se propone un nuevo esquema de firma digital, junto con una implementación del sistema de distribución de claves de Diffie-Hellman para construir un sistema de clave pública \citep{Elgamal1985}. Según \citet{Elgamal1985}, se introduce un nuevo esquema de firma que permite un sistema criptográfico de clave pública (...) Esta plantilla fue creada por \citeauthor{UMU_Thesis}, con el título \citetitle{UMU_Thesis}.
+\noindent\textbf{Ejemplo:}. Esta plantilla es una modificación de la plantilla IPLeiriaThesis \cite{IPLeiriaThesis}, dando lugar a la creación de UMUthesis \cite{UMU_Thesis}
 
 \section{Referencias}
 
@@ -56,8 +55,8 @@ Siguiendo estas recomendaciones, podemos generar una figura como se muestra en l
 
 \begin{figure}[!htpb]
     \centering
-    \includegraphics[width=\linewidth]{Figures/PezizaTuberosa.jpg}
-    \caption[Ilustración del hongo Dumontinia tuberosa.]{Ilustración del hongo *Dumontinia tuberosa* realizada por el médico, micólogo e ilustrador Charles Tulasne (1816–1884), en el libro *Selecta Fungorum Carpologia* (1861–65). (Título original de la obra: *Peziza tuberosa* parásita sobre *Anemone nemorosa*).}
+    \includegraphics[width=\linewidth]{Figures/catedral.jpg}
+    \caption[La catedral más bonita del mundo]{Ilustración de la catedrál más bonita del mundo).}
     \label{fig:figure-01}
 \end{figure}
 
@@ -67,18 +66,18 @@ Si deseas comparar imágenes u organizarlas una al lado de la otra, puedes utili
     \centering
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Figures/PezizaTuberosa.jpg}
+        \includegraphics[width=0.9\textwidth]{Figures/catedral.jpg}
         \caption{Subfigura 1.}
         \label{fig:figure-02.1}
     \end{subfigure}
     \hspace{.5cm}
     \begin{subfigure}{0.45\textwidth}
         \centering
-        \includegraphics[width=0.9\textwidth]{Figures/PezizaTuberosa.jpg}
+        \includegraphics[width=0.9\textwidth]{Figures/catedral.jpg}
         \caption{Subfigura 2.}
         \label{fig:figure-02.2}
     \end{subfigure}
-    \caption{Ejemplo de figura compuesta con subfiguras.}
+    \caption{La catedral más bonita del mundo.}
     \label{fig:figure-02}
 \end{figure}
 
@@ -351,7 +350,7 @@ Al redactar ecuaciones o expresiones matemáticas, \LaTeX es una herramienta pot
 
 \begin{equation}
 \label{eq:equation-01}
-E = m
+E = m.c^2
 \end{equation}
 
 \textbf{Ejemplo:} A continuación se muestra una ecuación —\textit{sin numeración}— que representa una función de pérdida regularizada en aprendizaje supervisado, combinando la pérdida media de predicción sobre el conjunto de entrenamiento y un término de regularización $L_2$ para evitar el sobreajuste:
@@ -364,6 +363,6 @@ Crear ecuaciones puede resultar complejo, por lo que recomendamos usar un editor
 
 \section{Notas al pie}
 
-En ocasiones, puede ser útil presentar información complementaria que no forma parte del cuerpo principal del texto. En \LaTeX, esto se puede hacer fácilmente usando el comando \verb|\footnote{TEXTO}|. El contenido aparecerá al pie de la página\footnote{Esto es una nota al pie sencilla.}.
+En ocasiones, puede ser útil presentar información complementaria que no forma parte del cuerpo principal del texto. En \LaTeX, esto se puede hacer fácilmente usando el comando \verb|\footnote{TEXTO}|. El contenido aparecerá al pie de la página\footnote{Esto es una nota.}.
 
 Si deseas insertar notas al pie dentro de una tabla, es mejor replantearlo, ya que \LaTeX no ofrece una forma sencilla de manejarlas. En su lugar, puedes colocar un asterisco “*” donde quieras que aparezca la referencia. Luego, debajo de la tabla —\textbf{pero antes de cerrar el entorno \texttt{table}}— coloca el texto asociado al asterisco. Así lograrás un efecto similar al de una nota al pie, pero localizada bajo la tabla y no al final de la página.
