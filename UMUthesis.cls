@@ -79,7 +79,7 @@
 \newcommand{\DocStageOption}{\g_UMUthesis_docstage_tl}
 \newcommand{\MediaOption}{\g_UMUthesis_media_tl}
 \newcommand{\ColorOption}{\g_UMUthesis_linkcolor_tl}
-\newcommand{\DocTypeOption}{g_UMUthesis_doctype_tl}
+\newcommand{\DocTypeOption}{\g_UMUthesis_doctype_tl}
 
 \ProcessKeyOptions[UMUthesis]
 \ExplSyntaxOff

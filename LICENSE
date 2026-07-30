@@ -1,0 +1,41 @@
+LaTeX Project Public License, version 1.3c
+==========================================
+
+Copyright (C) 2025 Enrique Pérez <enrique.perez2@um.es>
+
+This work consists of the file UMUthesis.cls, the configuration files in
+the Configurations/ directory, and all the supporting files distributed
+in this repository (Matter/, Metadata/, Chapters/, Figures/Theme/,
+Bibliography/ and Code/), collectively referred to as "UMU Thesis
+Template".
+
+This work may be distributed and/or modified under the conditions of the
+LaTeX Project Public License, either version 1.3c of this license or (at
+your option) any later version. The latest version of this license is in
+
+    https://www.latex-project.org/lppl/lppl-1-3c.txt
+
+and version 1.3c or later is part of all distributions of LaTeX version
+2008 or later.
+
+This work has the LPPL maintenance status `maintained'.
+
+The Current Maintainer of this work is Enrique Pérez.
+
+
+Note on the full licence text
+-----------------------------
+
+The complete, authoritative text of the LPPL v1.3c is NOT reproduced in
+this file. It is available at the URL above and is also shipped with
+every TeX distribution; you can read it locally by running:
+
+    texdoc lppl
+
+Derivative work
+---------------
+
+This template is an adaptation of `ipleiria-thesis` by José Areia
+(https://github.com/joseareia/ipleiria-thesis), also distributed under
+the LPPL. The original author's attribution is retained, as required by
+the licence.

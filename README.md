@@ -98,7 +98,7 @@ Code/                     → Código fuente o scripts
 
 ## 📄 Licencia
 
-Este proyecto se distribuye bajo la licencia MIT. Puedes usarlo, modificarlo y compartirlo libremente, siempre que mantengas la atribución al autor original y al adaptador.
+Este proyecto se distribuye bajo la **[LaTeX Project Public License v1.3c](https://www.latex-project.org/lppl/lppl-1-3c.txt)**, la licencia estándar de las plantillas y paquetes de LaTeX (y la misma que usa la plantilla original de la que deriva). Puedes usarlo, modificarlo y redistribuirlo libremente, siempre que mantengas la atribución al autor original y al adaptador. Consulta el fichero [`LICENSE`](LICENSE) para los detalles.
 
 ---
 

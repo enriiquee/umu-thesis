@@ -73,14 +73,18 @@
 
 %%% Discusión %%%
 
-\include{Chapters/07-Discussion}
+\include{Chapters/06-Discussion}
 
 %%% Conclusiones %%%
 
-\include{Chapters/08-Conclusions}
+\include{Chapters/07-Conclusions}
 
 %%% Bibliography %%%
-\renewcommand{\refname}{Bibliography}
+\ifthenelse{\equal{\LanguageOption}{spanish}}{%
+    \renewcommand{\refname}{Bibliografía}%
+}{%
+    \renewcommand{\refname}{Bibliography}%
+}
 \printbibliography[title={\refname},heading=bibintoc]
 
 %%% Appendices: Work that *YOU* Developed %%%

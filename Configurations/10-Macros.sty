@@ -41,7 +41,7 @@
 
 % Abstract keywords.
 \NewDocumentCommand{\keywordsen}{m}{\vspace{.4cm}\noindent\textbf{Keywords:} #1}
-\NewDocumentCommand{\keywordspt}{m}{\vspace{.4cm}\noindent\textbf{Palavras-Chave:} #1}
+\NewDocumentCommand{\keywordses}{m}{\vspace{.4cm}\noindent\textbf{Palabras clave:} #1}
 
 % Landscape mode - the proper way!
 \def\ifGm@preamble#1{\@firstofone}
@@ -84,9 +84,14 @@
 \addto\extrasenglish{\def\tableautorefname{Table}}
 \addto\extrasenglish{\def\partautorefname{Part}}
 \addto\extrasenglish{\def\appendixautorefname{Appendix}}
-\addto\extrasspanish{\def\sectionautorefname{Secção}}
-\addto\extrasspanish{\def\subsectionautorefname{Secção}}
-\addto\extrasspanish{\def\subsubsectionautorefname{Secção}}
+\addto\extrasspanish{\def\figureautorefname{Figura}}
+\addto\extrasspanish{\def\chapterautorefname{Capítulo}}
+\addto\extrasspanish{\def\sectionautorefname{Sección}}
+\addto\extrasspanish{\def\subsectionautorefname{Sección}}
+\addto\extrasspanish{\def\subsubsectionautorefname{Sección}}
+\addto\extrasspanish{\def\tableautorefname{Tabla}}
+\addto\extrasspanish{\def\partautorefname{Parte}}
+\addto\extrasspanish{\def\appendixautorefname{Apéndice}}
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%

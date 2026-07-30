@@ -3,6 +3,17 @@
 % Main document color; used mainly in citation links.
 \colorlet{maincolor}{\ColorOption}
 
+% Apply the 'linkcolor' class option to the actual hyperlinks. Without
+% 'colorlinks', hyperref falls back to its default and frames every link
+% with a coloured rectangle instead of colouring the text itself.
+\hypersetup{
+    colorlinks=true,
+    linkcolor=maincolor, % Internal links: chapters, sections, figures, tables.
+    citecolor=maincolor, % Bibliographic citations.
+    urlcolor=maincolor,  % External URLs.
+    filecolor=maincolor  % Links to external files.
+}
+
 % Color used in the numeration of the chapter style 'classic'.
 \colorlet{chapterdarkred}{red!30!black}
 
