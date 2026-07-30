@@ -4,7 +4,6 @@
 \newcommand\blankpage{
     \clearpage
     \thispagestyle{empty}%
-    \addtocounter{page}{1}%
     \vspace*{\fill}
     \begin{center}
         \ifthenelse{\equal{\LanguageOption}{spanish}}{%
@@ -92,6 +91,21 @@
 \addto\extrasspanish{\def\tableautorefname{Tabla}}
 \addto\extrasspanish{\def\partautorefname{Parte}}
 \addto\extrasspanish{\def\appendixautorefname{Apéndice}}
+
+% Force plain lowercase roman page numbers in Spanish.
+%
+% By default babel-spanish typesets roman numerals as small caps, through
+% its internal \es@scroman macro. That macro leaks into the glossary index
+% file, where a page reference ends up written as '\es@scroman  {vii}'.
+% makeindex cannot parse that as a page number: it reports 'Illegal space
+% within numerals' and SILENTLY DISCARDS the entry. The practical effect is
+% that any acronym or glossary term used in the front matter (abstract,
+% acknowledgements...) loses its page reference, and one used *only* there
+% disappears from the list altogether -- with no error and no warning.
+%
+% \spanishlcroman is babel-spanish's own documented switch for this. It must
+% run after babel's layout hook, hence \AtBeginDocument.
+\ifthenelse{\equal{\LanguageOption}{spanish}}{\AtBeginDocument{\spanishlcroman}}{}
 
 % Command to overwrite the color of a given command.
 \newcommand{\overwritecolor}[2]{%

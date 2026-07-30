@@ -4,13 +4,71 @@
 \usepackage{fvextra} % Enhanced customisation of verbatim environments.
 \usepackage{csquotes} % Context-sensitive quotation marks.
 \usepackage{fontspec} % Required for custom fonts with XeLaTeX or LuaLaTeX.
-\newfontfamily\plexsans{IBM Plex Sans}
+
+% All fonts below are loaded by FILE NAME, not by family name.
+%
+% Family-name lookup (e.g. \setmainfont{TeX Gyre Pagella}) goes through the
+% operating system font database, so it only succeeds where that database
+% indexes the TeX tree: Linux and Overleaf, via fontconfig. On macOS the
+% lookup goes through Core Text and on Windows through the system font
+% registry, and neither of them sees the fonts shipped inside TeX Live or
+% MiKTeX -- so the same document silently falls back to Latin Modern.
+%
+% File names are resolved by kpathsea, which behaves identically on every
+% platform, so this loads the exact same fonts everywhere. All the fonts
+% used here ship with a full TeX Live / MiKTeX installation; no system-wide
+% font installation is needed.
+%
+% The names are CASE-SENSITIVE (Linux will not forgive a typo) and the '*'
+% is expanded by fontspec to the font name given in the mandatory argument.
 
 \linespread{1.2} % Slightly increase line spacing.
-\setmainfont{TeX Gyre Pagella}[LetterSpace=0.7] % Set TeX Gyre Pagella as the main font.
 
-\newcommand{\latofont}{\fontspec{Lato}}
-\newcommand{\garamondfont}{\fontspec{EB Garamond}}
+% Main document font: TeX Gyre Pagella -- TeX Live package 'tex-gyre'.
+\setmainfont{texgyrepagella}[
+    Extension      = .otf,
+    UprightFont    = *-regular,
+    BoldFont       = *-bold,
+    ItalicFont     = *-italic,
+    BoldItalicFont = *-bolditalic,
+    LetterSpace    = 0.7
+]
 
-\newcommand{\crimsonfont}{\fontspec{Crimson}[LetterSpace=-0.5]}
+% Sans-serif used on the cover and the front page -- package 'plex-otf'.
+\newfontfamily\plexsans{IBMPlexSans}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic
+]
 
+% Display font for the 'classic' and 'modern' chapter styles and for the
+% appendix/annex separator pages -- package 'crimson'. Note that this is
+% Crimson (Kosch), not Crimson Text nor Crimson Pro: loading it by file
+% name is what keeps that distinction unambiguous.
+\newcommand{\crimsonfont}{\fontspec{Crimson}[
+    Extension      = .otf,
+    UprightFont    = *-Roman,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    LetterSpace    = -0.5
+]}
+
+% Extra families, not used by the template but available for your own text.
+\newcommand{\latofont}{\fontspec{Lato}[
+    Extension      = .ttf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic
+]}
+
+\newcommand{\garamondfont}{\fontspec{EBGaramond}[
+    Extension      = .otf,
+    UprightFont    = *-Regular,
+    BoldFont       = *-Bold,
+    ItalicFont     = *-Italic,
+    BoldItalicFont = *-BoldItalic
+]}

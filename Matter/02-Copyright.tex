@@ -2,6 +2,9 @@
 
 \thispagestyle{plain} % Page style without header and footer
 
-\includepdf[pages={1}]{Documents/DECLARACIÓN_DE_AUTORÍA_Y_ORIGINALIDAD.pdf}
+% El nombre de este fichero debe ser ASCII puro. Los acentos en nombres de
+% fichero sobreviven en macOS (APFS ignora la normalizacion Unicode) pero se
+% rompen en Linux/Overleaf, donde NFC y NFD son nombres distintos.
+\includepdf[pages={1}]{Documents/DECLARACION_DE_AUTORIA_Y_ORIGINALIDAD.pdf}
 
 \MediaOptionLogic

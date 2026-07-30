@@ -1,22 +1,17 @@
 % Author Name: Enrique Pérez
 % Author Contact: enrique.perez2@um.es
-% Version: 1.0.0 - 2025/04/29
+% Version: 1.1.0 - 2026/07/30
 % Public Repository: https://github.com/enriiquee/umu-thesis
 
 
 %%% Class Information %%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{UMUthesis}[2025/05/05 UMU Thesis Class]
+\ProvidesClass{UMUthesis}[2026/07/30 v1.1.0 UMU Thesis Class]
 
 \RequirePackage{expl3} % Required for writing LaTeX3 code in this class.
 
 %%% Handle Class Options %%%
 \ExplSyntaxOn
-
-\cs_new:Npn \UMUthesis_check_color:n #1 {
-  \tl_set:Nn \l_tmpa_tl { #1 }
-  \color_set:nn { \l_tmpa_tl } { #1 }
-}
 
 \keys_define:nn { UMUthesis } {
     language .choices:nn = 
@@ -51,13 +46,12 @@
     media .default:n = { paper },
     media .initial:n = { paper },
 
+    % Any colour expression understood by xcolor is accepted. It is not
+    % validated here: an invalid value fails later, in Configurations/
+    % 01-Colors.sty, with xcolor's own error message, which names the
+    % offending colour and is far more useful than a generic warning.
     linkcolor .code:n = {
         \tl_gset:Nn \g_UMUthesis_linkcolor_tl { #1 }
-        \UMUthesis_check_color:n { #1 }
-        \tl_if_eq:NNTF \l_tmpa_tl \q_no_value {
-            \tl_gset:Nn \g_UMUthesis_linkcolor_tl { black }
-            \ClassWarningNoLine{UMUthesis}{Specified~'linkcolor'~not~available.~Defaulting~to~'black'}
-        }
     },
     linkcolor .default:n = { black },
     linkcolor .initial:n = { black },
@@ -112,7 +106,7 @@
 \RequirePackage[toc,page]{appendix} % Formatting for appendices.
 \RequirePackage[acronym]{glossaries} % Create glossaries and acronyms.
 \RequirePackage[calc,datesep={/}]{datetime2} % Enhanced date and time formatting.
-\RequirePackage[bookmarks,pdfusetitle]{hyperref} % Hyperlinks and PDF metadata.
+\RequirePackage[bookmarks,bookmarksnumbered,pdfusetitle]{hyperref} % Hyperlinks and PDF metadata.
 \RequirePackage{xparse} % Advanced argument parsing for custom macros.
 \RequirePackage{typearea} % Page layout adjustments (KOMA-Script).
 \RequirePackage{eso-pic} % Adding elements to the page background.

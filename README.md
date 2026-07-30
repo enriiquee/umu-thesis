@@ -50,10 +50,40 @@ Pasos para empezar:
 
 ---
 
-### ⚠️ Compilación local
+### 💻 Compilación local (Windows, macOS y Linux)
 
-Actualmente, **esta versión NO está adaptada para uso local**.
-La compatibilidad con compiladores locales (`TeX Live`, `MiKTeX`, etc.) no ha sido verificada y puede requerir ajustes en dependencias o estructura.
+La plantilla compila en local en los tres sistemas operativos, con **TeX Live** o **MiKTeX**.
+
+**Requisitos**
+
+* Una distribución LaTeX completa: [TeX Live](https://www.tug.org/texlive/) (Windows/Linux), [MacTeX](https://www.tug.org/mactex/) (macOS) o [MiKTeX](https://miktex.org/).
+* `latexmk` y `biber`, incluidos en cualquier instalación completa.
+* **XeLaTeX obligatoriamente.** La plantilla usa `fontspec`; con `pdflatex` no compila.
+* **La opción `-shell-escape` obligatoriamente**, porque el paquete `minted` necesita lanzar un proceso externo para resaltar el código.
+
+**Compilar**
+
+```bash
+latexmk        # Compila todo: bibliografía, glosario, acrónimos y las pasadas necesarias
+latexmk -c     # Limpia los ficheros intermedios y conserva el PDF
+latexmk -C     # Limpia también el PDF
+```
+
+El fichero `.latexmkrc` incluido en el repositorio ya configura XeLaTeX, `-shell-escape`, `biber` y las dependencias del glosario, así que no hace falta pasar ninguna opción.
+
+Si prefieres ejecutarlo paso a paso, este es el orden correcto:
+
+```bash
+xelatex -shell-escape UMUthesis
+biber UMUthesis
+makeglossaries UMUthesis
+xelatex -shell-escape UMUthesis
+xelatex -shell-escape UMUthesis
+```
+
+**No necesitas instalar ninguna fuente.** Se cargan por nombre de fichero desde el propio árbol de TeX Live/MiKTeX, que es idéntico en los tres sistemas. Cargarlas por nombre de familia, como hacía la versión anterior, solo funciona en Linux y en Overleaf: en Windows y macOS el documento caía silenciosamente a Latin Modern.
+
+> **Nota sobre `minted`.** Con TeX Live 2025 o superior no necesitas instalar nada más, porque `latexminted` ya viene incluido. Con versiones anteriores necesitarás Python y Pygments (`pip install Pygments`).
 
 ---
 
@@ -65,33 +95,38 @@ Edita el comando `\documentclass[...]` en `UMUthesis.tex` para ajustar las opcio
 \documentclass[
   language=spanish,
   chapterstyle=modern,
-  coverstyle=classic,
   docstage=final,
   media=paper,
-  colorlink=red!45!black
+  linkcolor=red!45!black
 ]{UMUthesis}
 ```
 
-* **language**: `spanish`, `english`
-* **chapterstyle**: `classic`, `modern`, `fancy`
-* **coverstyle**: `classic`, `bw`
-* **docstage**: `working`, `final`
-* **media**: `screen`, `paper`
-* **colorlink**: Cualquier color compatible con `xcolor`
+| Opción | Valores | Por defecto | Efecto |
+|---|---|---|---|
+| **language** | `english`, `spanish` | `english` | Idioma de los títulos automáticos, la portada y los pies de figura. |
+| **chapterstyle** | `classic`, `fancy`, `modern` | `fancy` | Aspecto del título y la numeración de los capítulos. |
+| **docstage** | `working`, `final` | `working` | `working` imprime la versión y la fecha en el pie de cada página. Requiere definir `\DocumentVersion{...}`. |
+| **media** | `paper`, `screen` | `paper` | `paper` intercala páginas en blanco para impresión a doble cara; `screen` no. |
+| **linkcolor** | cualquier color de `xcolor` | `black` | Color de enlaces, citas y URLs. |
+
+> **Sobre `linkcolor`.** Se recomienda `red!45!black` para leer en pantalla. Si vas a **imprimir** la tesis, déjalo en `black`: muchas copisterías cobran la página a color solo por un enlace coloreado.
 
 ---
 
 ## 📁 Estructura del proyecto
 
 ```
-UMUthesis.tex             → Archivo principal
-UMUthesis.cls             → Clase personalizada de UMU
-Metadata/                 → Metadatos (título, autor, tutor, etc.)
-Chapters/                 → Capítulos principales de la tesis
+UMUthesis.tex             → Archivo principal: opciones e inclusión de capítulos
+UMUthesis.cls             → Clase personalizada de la UMU (no la toques)
+.latexmkrc                → Configuración de compilación local
+Metadata/                 → Metadatos (título, autor, dirección de tesis, etc.)
+Chapters/                 → Capítulos principales, apéndices y anexos
+Configurations/           → Fuentes, colores, márgenes, cabeceras... (no la toques)
+Matter/                   → Portada, dedicatoria, agradecimientos, glosario, etc.
 Figures/                  → Imágenes y gráficos
-Bibliography/             → Archivo .bib con referencias
-Matter/                   → Portada, agradecimientos, glosario, etc.
-Code/                     → Código fuente o scripts
+Bibliography/             → Archivo .bib con las referencias
+Documents/                → PDFs que se insertan tal cual (declaración de autoría)
+Code/                     → Código fuente o scripts que se incluyen en el texto
 ```
 
 ---

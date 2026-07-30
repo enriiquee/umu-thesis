@@ -28,14 +28,14 @@ El objetivo de esta adaptación ha sido cubrir esa carencia institucional, ofrec
 
 Para comenzar a utilizar esta plantilla, primero necesitas tener conocimientos básicos de \LaTeX. Para ello, puedes consultar el \autoref{cp:latex-tutorial}. Una vez estés familiarizado/a con \LaTeX, podrás optar por trabajar en un entorno local o utilizar un editor en línea.
 
-Si prefieres un editor en línea, te recomiendo encarecidamente \href{https://www.overleaf.com/}{Overleaf}. Aunque Overleaf ofrece una suscripción de pago con tiempos de compilación ampliados, esta plantilla está diseñada específicamente para compilar sin problemas dentro de los límites del plan gratuito. Para usarla en Overleaf, simplemente visita la \href{https://www.overleaf.com/latex/templates/unofficial-polytechnic-university-of-leiria-estg-thesis-slash-report-template/tqgbrncfhwgt}{página oficial de la plantilla} y haz clic en \textit{Use as Template}.
+Si prefieres un editor en línea, te recomiendo encarecidamente \href{https://www.overleaf.com/}{Overleaf}. Aunque Overleaf ofrece una suscripción de pago con tiempos de compilación ampliados, esta plantilla está diseñada específicamente para compilar sin problemas dentro de los límites del plan gratuito. Para usarla en Overleaf, simplemente visita la \href{https://www.overleaf.com/latex/templates/tesis-universidad-de-murcia/fdtnqcmbxndr}{página oficial de la plantilla} y haz clic en \textit{Use as Template}.
 
 Si optas por utilizar un editor local, primero deberás instalar un sistema \LaTeX~en tu equipo. Existen varias opciones, pero personalmente recomiendo \href{https://www.tug.org/texlive/}{TeX Live} o \href{https://miktex.org/}{MikTeX}. Tras instalarlo, necesitarás elegir un editor de texto para redactar y editar tus documentos. Para ayudarte en esta elección, te recomiendo consultar esta \href{https://tex.stackexchange.com/questions/339/latex-editors-ides}{entrada}, que ofrece una comparativa completa de los distintos editores disponibles.
 
 Una vez tengas todo instalado, puedes clonar o descargar la \href{https://github.com/enriiquee/umu-thesis}{última versión} de la plantilla desde GitHub y empezar a utilizarla.
 
-\begin{block}[warning]
-\textit{Esta plantilla ha sido probada exclusivamente en Overleaf. Si decides usarla en un entorno local, lo haces bajo tu propia responsabilidad. No puedo garantizar que funcione correctamente fuera de Overleaf, ya que no he realizado pruebas exhaustivas en instalaciones locales. Si tienes experiencia configurando entornos \LaTeX, siéntete libre de adaptar, modificar o mejorar la plantilla según tus necesidades.}
+\begin{block}[tip]
+\textit{La plantilla compila tanto en Overleaf como en local (Windows, macOS y Linux). Para compilar en local necesitas \textbf{XeLaTeX} —usa \texttt{fontspec}, así que con \texttt{pdflatex} no funciona— y la opción \texttt{-shell-escape}, que el paquete \texttt{minted} necesita para resaltar el código. El fichero \texttt{.latexmkrc} incluido lo configura todo, de modo que basta con ejecutar \texttt{latexmk}. Consulta el README para los detalles.}
 \end{block}
 
 \section{Obtener Ayuda}

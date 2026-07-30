@@ -1,0 +1,55 @@
+# ---------------------------------------------------------------------------
+# Artefactos de compilación de LaTeX
+# ---------------------------------------------------------------------------
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.xdv
+
+# Bibliografía (biblatex + biber)
+*.bbl
+*.bcf
+*.blg
+*.run.xml
+
+# Glosario y acrónimos (glossaries + makeglossaries)
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+
+# Resaltado de código (minted)
+_minted*/
+*.pyg
+*.pygtex
+*.pygstyle
+*.minted
+
+# PDF generado. Está versionado a propósito para que quien visite el
+# repositorio pueda ver el resultado sin compilar. Descomenta la línea
+# siguiente si prefieres no versionarlo en tu propia tesis.
+# UMUthesis.pdf
+
+# ---------------------------------------------------------------------------
+# Sistema operativo y editores
+# ---------------------------------------------------------------------------
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+*~
+*.swp
+.vscode/
+.idea/
