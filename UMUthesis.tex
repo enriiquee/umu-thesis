@@ -2,7 +2,7 @@
 % Affiliation: Servicio de Investigación Biosanitaria (SIB)
 %              Área Científica y Técnica de Investigación (ACTI)
 %              Universidad de Murcia
-% Author Contact: enrique.perez2@um.es | +34 868 88 1605
+% Author Contact: enrique.perez2@um.es
 % Version: 1.1.0 - 2026/07/30
 % Public Repository: https://github.com/enriiquee/umu-thesis
 
