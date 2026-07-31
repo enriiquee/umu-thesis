@@ -137,11 +137,25 @@ Este proyecto se distribuye bajo la **[LaTeX Project Public License v1.3c](https
 
 ---
 
+## 📬 Contacto
+
+Para dudas, sugerencias o erratas, lo preferible es abrir un [*issue*](https://github.com/enriiquee/umu-thesis/issues) en este repositorio, así la respuesta queda disponible para el resto.
+
+Para cualquier otra consulta:
+
+**Dr. Enrique Pérez**<br>
+Servicio de Investigación Biosanitaria (SIB)<br>
+Área Científica y Técnica de Investigación (ACTI)<br>
+Universidad de Murcia
+
+📧 [enrique.perez2@um.es](mailto:enrique.perez2@um.es) &nbsp;·&nbsp; 📞 [+34 868 88 1605](tel:+34868881605)
+
+---
+
 ## 🙏 Créditos
 
 * Plantilla original: [`ipleiria-thesis`](https://github.com/joseareia/ipleiria-thesis) por José Areia
-* Adaptación para la Universidad de Murcia: **Enrique Pérez**
-  Contacto: [enrique.perez2@um.es](mailto:enrique.perez2@um.es)
+* Adaptación para la Universidad de Murcia: **Dr. Enrique Pérez** (ACTI–SIB, Universidad de Murcia)
 
 ---
 
